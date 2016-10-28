@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FactaAutVerba</title>
+  <title>facta aut verba?</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <% if flash[:error].present? %>
+      <div class="col-xs-10 col-xs-offset-1 alert alert-danger">
+        <%= flash[:error] %>
+      </div>
+      <br/>
+    <% end %>
 
 <%= yield %>
 
