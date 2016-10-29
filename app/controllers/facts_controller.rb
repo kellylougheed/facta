@@ -21,10 +21,14 @@ class FactsController < ApplicationController
     end
   end
 
+  def update
+    Fact.find(params[:id]).update_attributes(fact_params)
+  end
+
   private
 
   def fact_params
-    params.require(:fact).permit(:text, :initial_citation)
+    params.require(:fact).permit(:text, :initial_citation, :flags)
   end
 
 end

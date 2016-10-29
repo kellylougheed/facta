@@ -1,10 +1,30 @@
+<script>
+$(function() {
+  $(".btn-false").click(function() {
+    var confirmed = confirm("You are about to tag this fact as false. You cannot undo this action. Are you sure you wish to proceed?");
+    if (confirmed === true) {
+      var updateURL = $(event.target).data("update-url");
+      var currentFlags = $(event.target).data("current-flags");
+      var newFlags = currentFlags + 1;
+      $.ajax({
+        type: 'PUT',
+        url: updateURL,
+        dataType: 'json',
+        data: { fact: { flags: newFlags }}
+      });
+      location.reload();
+    }
+  });
+});
+</script>
+
 <h1 class="text-center"><%= @fact.text %></h1>
 
-<button class="pull-right btn-false"><i class="fa fa-flag" aria-hidden="true"></i> Flag as False</button>
 
 <% if @fact.flags.to_i > 0 %>
-<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This fact has been flagged as false <% if @fact.flags_to i == 1 %> 1 time. <% else %> <%= @fact.flags.to_i %> times</b>. <% end %>
+<p class="text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This fact has been flagged as false <b><% if @fact.flags == 1 %> 1 time. <% else %> <%= @fact.flags %> times. <% end %></b> </p>
 <% end %>
+<button class="pull-right btn-false" data-update-url="<%= fact_path(@fact) %>" data-current-flags="<%= @fact.flags %>"><i class="fa fa-flag" aria-hidden="true"></i> Flag as False</button>
 
 <div class="pull-left">
 <h2>Citations</h2>
