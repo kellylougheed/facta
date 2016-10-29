@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028221701) do
+ActiveRecord::Schema.define(version: 20161029174535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "citations", force: true do |t|
+    t.text     "source"
+    t.integer  "fact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "citations", ["fact_id"], name: "index_citations_on_fact_id", using: :btree
 
   create_table "facts", force: true do |t|
     t.text     "text"
