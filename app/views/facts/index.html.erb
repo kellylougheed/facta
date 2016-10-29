@@ -1,12 +1,26 @@
 <h1 class="text-center"><%= @fact.text %></h1>
 
-<p class="pull-right">Flag as False</p>
+<button class="pull-right btn-false"><i class="fa fa-flag" aria-hidden="true"></i> Flag as False</button>
+
+<% if @fact.flags.to_i > 0 %>
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This fact has been flagged as false <% if @fact.flags_to i == 1 %> 1 time. <% else %> <%= @fact.flags.to_i %> times</b>. <% end %>
+<% end %>
 
 <div class="pull-left">
 <h2>Citations</h2>
 
 <% if @fact.initial_citation.present? %>
 <p><%= @fact.initial_citation %></p>
+<% end %>
+
+<% if @fact.citations.present? %>
+<% @fact.citations.each do |citation| %>
+<p><%= citation.source %></p>
+<% end %>
+<% end %>
+
+<% if !@fact.initial_citation.present? && !@fact.citations.present? %>
+<p>This fact has not been cited. Be the first to add a citation!</p>
 <% end %>
 
 <p><!-- Button trigger modal -->

@@ -2,8 +2,16 @@ class CitationsController < ApplicationController
 
   def create
     @fact = Fact.find(params[:fact_id])
-    @fact.citations.create(citation_params)
-    redirect_to root_path
+    @citation = @fact.citations.new(citation_params)
+    if @citation.invalid?
+      flash[:error] = 'Please enter a valid citation longer than 5 characters.'
+      redirect_to root_path
+    else
+      @citation.flags = 0
+      @citation.save
+      redirect_to root_path
+      flash[:success] = 'Thanks for adding a citation!'
+    end
   end
 
   private
