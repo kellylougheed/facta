@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           <div class="form">
-            <%= simple_form_for @citation, url: '#' do |f| %>
+            <%= simple_form_for @citation, url: fact_citations_path(@fact) do |f| %>
               <%= f.input :source, label: "Citation" %>
               <i>Add a primary source citation. Optional: Quote the original Latin/Greek source and translate it.</i>
           </div>

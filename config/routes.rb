@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'facts#index'
 
-  resources :facts
+  resources :facts do
+    resources :citations, only: :create
+  end
   get 'all', to: 'facts#all'
 
   # The priority is based upon order of creation: first created -> highest priority.
