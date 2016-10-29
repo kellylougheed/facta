@@ -1,31 +1,11 @@
-<h1><%= @fact.text %></h1>
-<h2><%= @fact.initial_citation %></h2>
+<h1 class="text-center"><%= @fact.text %></h1>
 
-<!-- Button trigger modal -->
-<%= link_to 'Add Fact', '#', class: 'text-centered', data: {toggle: 'modal', target: '#addFact'} %>
+<p class="pull-right">Flag as False</p>
 
-  <!-- Modal -->
-  <div class="modal fade" id="addFact" tabindex="-1" role="dialog" aria-labelledby="addFactLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h2>Add a fact</h2>
-        </div>
-        <div class="modal-body">
-          <div class="form">
-            <%= simple_form_for Fact.new do |f| %>
-              <%= f.input :text, label: "Fact" %>
-              <br>
-              <%= f.input :initial_citation, label: "Citation" %>
-              <i>Optional: Add a primary source citation. Super optional: Quote the original Latin/Greek source and translate it.</i>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="form-button form-clear" data-dismiss="modal">Close</button>
-          <%= f.submit 'Submit', class: 'form-button' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="pull-left">
+<h2>Citations</h2>
+<% if @fact.initial_citation.present? %>
+<p><%= @fact.initial_citation %></p>
+<% end %>
+
+</div>
