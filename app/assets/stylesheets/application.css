@@ -14,6 +14,46 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=Oswald:300);
+
+body {
+  background: url('colosseum.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ }
+
+div.navbar {
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  background: url('binding_dark.png');
+  opacity: .9;
+  color: white;
+  text-align: center;
+  font-family: 'Oswald';
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  border-radius: 0;
+ }
+
+ a.btn-nav, a.btn-nav:link, a.btn-nav:active, a.btn-nav:visited {
+  background-color: #428bca;
+  color: white;
+  padding: 10px;
+  margin-right: 20px;
+  letter-spacing: 1px;
+  text-decoration: none;
+ }
+
+ a.btn-nav:hover {
+  background-color: #5bc0de;
+  color: white;
+  text-decoration: none;
+ }
+
 .btn-false {
    background-color: red;
    color: white;

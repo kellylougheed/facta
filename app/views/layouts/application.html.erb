@@ -8,6 +8,10 @@
   <script src="https://use.fontawesome.com/ee14bb1f23.js"></script>
 </head>
 <body>
+<div class="navbar">
+facta aut verba? <span class="text-muted">facts or words?</span>
+</div>
+
  <% if flash[:error].present? %>
       <div class="alert alert-danger">
         <%= flash[:error] %>
@@ -21,13 +25,15 @@
       <br/>
 <% end %>
 
+<br/>
 <div class="text-center">
-<%= link_to 'New Fact!', root_path, class: 'btn' %><br/>
-
+<%= link_to 'Random Fact', root_path, class: 'btn-nav' %>
+<%= link_to 'All Facts', all_path, class: 'btn-nav' %>
+<%= link_to 'By Category', root_path, class: 'btn-nav' %>
 <!-- Button trigger modal -->
-<%= link_to 'Add Fact', '#', class: 'btn', data: {toggle: 'modal', target: '#addFact'} %>
-
+<%= link_to 'Add Fact', '#', class: 'btn-nav btn-add', data: {toggle: 'modal', target: '#addFact'} %>
 </div>
+<br/>
 
 <%= yield %>
 
