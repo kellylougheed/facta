@@ -1,0 +1,8 @@
+<h1>All Facts</h1>
+
+<% @facts.each do |fact| %>
+
+<h1><%= fact.text %></h1>
+<h2><%= fact.initial_citation %></h2>
+
+<% end %>

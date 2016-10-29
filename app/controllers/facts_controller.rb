@@ -3,7 +3,8 @@ class FactsController < ApplicationController
     @fact = Fact.order("RANDOM()").first
   end
 
-  def new
+  def all
+    @facts = Fact.all
   end
 
   def create
@@ -12,6 +13,7 @@ class FactsController < ApplicationController
       flash[:error] = 'Please enter a valid fact longer than 10 characters.'
     end
     redirect_to root_path
+    flash[:success] = 'Thanks for adding a fact!'
   end
 
   private
