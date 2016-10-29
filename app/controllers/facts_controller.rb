@@ -9,12 +9,16 @@ class FactsController < ApplicationController
   end
 
   def create
-    @fact = Fact.create(fact_params)
-     if @fact.invalid?
+    @fact = Fact.new(fact_params)
+    if @fact.invalid?
       flash[:error] = 'Please enter a valid fact longer than 10 characters.'
+      redirect_to root_path
+    else
+      @fact.flags = 0
+      @fact.save
+      redirect_to root_path
+      flash[:success] = 'Thanks for adding a fact!'
     end
-    redirect_to root_path
-    flash[:success] = 'Thanks for adding a fact!'
   end
 
   private
