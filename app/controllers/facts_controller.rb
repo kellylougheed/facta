@@ -1,6 +1,7 @@
 class FactsController < ApplicationController
   def index
     @fact = Fact.order("RANDOM()").first
+    @citation = Citation.new
   end
 
   def all

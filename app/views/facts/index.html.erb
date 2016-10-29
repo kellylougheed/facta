@@ -4,8 +4,35 @@
 
 <div class="pull-left">
 <h2>Citations</h2>
+
 <% if @fact.initial_citation.present? %>
 <p><%= @fact.initial_citation %></p>
 <% end %>
 
+<p><!-- Button trigger modal -->
+<%= link_to 'Add Citation', '#', class: 'btn', data: {toggle: 'modal', target: '#addCitation'} %></p>
 </div>
+
+<!-- New citation modal -->
+  <div class="modal fade" id="addCitation" tabindex="-1" role="dialog" aria-labelledby="addCitationLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2>Add a citation</h2>
+        </div>
+        <div class="modal-body">
+          <div class="form">
+            <%= simple_form_for @citation, url: '#' do |f| %>
+              <%= f.input :source, label: "Citation" %>
+              <i>Add a primary source citation. Optional: Quote the original Latin/Greek source and translate it.</i>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="form-button form-clear" data-dismiss="modal">Close</button>
+          <%= f.submit 'Submit', class: 'form-button' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
