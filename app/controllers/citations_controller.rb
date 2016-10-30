@@ -7,7 +7,6 @@ class CitationsController < ApplicationController
       flash[:error] = 'Please enter a valid citation longer than 5 characters.'
       redirect_to root_path
     else
-      @citation.flags = 0
       @citation.save
       redirect_to root_path
       flash[:success] = 'Thanks for adding a citation!'
