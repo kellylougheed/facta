@@ -5,7 +5,7 @@ class FactsController < ApplicationController
   end
 
   def all
-    @facts = Fact.all
+    @facts = Fact.paginate(:page => params[:page], :per_page => 5)
   end
 
   def create
