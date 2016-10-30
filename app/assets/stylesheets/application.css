@@ -15,6 +15,7 @@
  */
 
 @import url(http://fonts.googleapis.com/css?family=Oswald:300);
+@import url(http://fonts.googleapis.com/css?family=Lato);
 
 body {
   background: url('colosseum.jpg') no-repeat center center fixed; 
@@ -22,6 +23,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: 'Lato', arial;
  }
 
 div.navbar {
@@ -29,33 +31,62 @@ div.navbar {
   width: 100%;
   background-color: black;
   background: url('binding_dark.png');
-  opacity: .9;
+  opacity: .8;
   color: white;
   text-align: center;
   font-family: 'Oswald';
   font-weight: 300;
   text-transform: uppercase;
   font-size: 2.5em;
-  border-radius: 0;
  }
 
  a.btn-nav, a.btn-nav:link, a.btn-nav:active, a.btn-nav:visited {
   background-color: #428bca;
   color: white;
   padding: 10px;
-  margin-right: 20px;
+  margin: 10px 20px 10px 0;
   letter-spacing: 1px;
   text-decoration: none;
+  border-radius: 10px;
  }
 
  a.btn-nav:hover {
-  background-color: #5bc0de;
-  color: white;
-  text-decoration: none;
+  background-color: #0099CC;
  }
 
+ .fact-box {
+  width: 75%;
+  margin: 0 auto;
+  background: rgba(255,255,255,.6);
+  padding: 10px;
+  border-radius: 20px;
+ }
+
+.btn-false, a.btn-citation {
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .btn-false {
-   background-color: red;
-   color: white;
-   border: none;
+   background-color: #d9534f;
+}
+
+.btn-false:hover {
+  background-color: #CC0000;
+}
+
+a.btn-citation, a.btn-citation:link, a.btn-citation:active, a.btn-citation:visited {
+  background-color: #5cb85c;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+a.btn-citation:hover {
+  background-color: #007E33;
+}
+
+.clear {
+  clear: both;
 }

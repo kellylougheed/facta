@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>facta aut verba?</title>
+  <title>FACTA | Ancient Rome Fun Facts</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="navbar">
-facta aut verba? <span class="text-muted">facts or words?</span>
+Ancient Rome Fun Facts
 </div>
 
  <% if flash[:error].present? %>
@@ -27,13 +27,11 @@ facta aut verba? <span class="text-muted">facts or words?</span>
 
 <br/>
 <div class="text-center">
-<%= link_to 'Random Fact', root_path, class: 'btn-nav' %>
 <%= link_to 'All Facts', all_path, class: 'btn-nav' %>
-<%= link_to 'By Category', root_path, class: 'btn-nav' %>
 <!-- Button trigger modal -->
-<%= link_to 'Add Fact', '#', class: 'btn-nav btn-add', data: {toggle: 'modal', target: '#addFact'} %>
+<%= link_to 'Add Fact', '#', class: 'btn-nav', data: {toggle: 'modal', target: '#addFact'} %>
 </div>
-<br/>
+<br/><br/><br/>
 
 <%= yield %>
 
@@ -55,8 +53,8 @@ facta aut verba? <span class="text-muted">facts or words?</span>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="form-button form-clear" data-dismiss="modal">Close</button>
-          <%= f.submit 'Submit', class: 'form-button' %>
+          <button type="button" class="btn btn-submit" data-dismiss="modal">Close</button>
+          <%= f.submit 'Submit', class: 'btn btn-info' %>
           <% end %>
         </div>
       </div>
