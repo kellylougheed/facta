@@ -31,9 +31,10 @@
 <%= link_to 'All Facts', all_path, class: 'btn-nav' %>
 <!-- Button trigger modal -->
 <%= link_to 'Add Fact', '#', class: 'btn-nav', data: {toggle: 'modal', target: '#addFact'} %>
+<br/><br/>
 <%= form_tag(facts_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "e.g. gladiators" %>
-  <%= submit_tag "Search", :name => nil %>
+  <%= text_field_tag :search, params[:search], placeholder: "e.g. gladiators", class: 'search-input' %>
+  <%= submit_tag "Search", :name => nil, class: 'btn btn-info' %>
 <% end %>
 </div>
 <br/><br/>

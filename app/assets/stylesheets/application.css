@@ -66,6 +66,14 @@ div.navbar {
   background-color: #0099CC;
  }
 
+ .search-input {
+  background: rgba(0,0,0,.5);
+  border: 1px solid white;
+  color: white;
+  border-radius: 10px;
+  padding: 7px 10px;
+ }
+
  .fact-box {
   width: 75%;
   margin: 0 auto;
@@ -106,6 +114,7 @@ a.btn-citation:hover {
 @media (max-width: 767px) {
   div.navbar {
     font-size: 2em;
+    padding-top: 5px;
   }
   div.fact-box {
     width: 90%;
