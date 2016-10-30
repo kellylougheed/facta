@@ -27,7 +27,7 @@ $(function() {
 <p class="text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This fact has been flagged as false <b><% if @fact.flags == 1 %> 1 time. <% else %> <%= @fact.flags %> times. <% end %></b> </p>
 <% end %>
 
-<button class="btn-false" data-update-url="<%= fact_path(@fact) %>" data-current-flags="<%= @fact.flags %>"><i class="fa fa-flag" aria-hidden="true"></i> Flag as False</button>
+<button class="btn-false" data-update-url="<%= fact_path(@fact) %>" data-current-flags="<%= @fact.flags %>"><i class="fa fa-flag" aria-hidden="true"></i> False</button>
 </div>
 
 <br class="clear"/>
