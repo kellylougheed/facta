@@ -21,6 +21,11 @@ class FactsController < ApplicationController
     end
   end
 
+  def show
+    @fact = Fact.find(params[:id])
+    @citation = Citation.new
+  end
+
   def update
     Fact.find(params[:id]).update_attributes(fact_params)
   end
