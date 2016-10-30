@@ -1,0 +1,84 @@
+<script>
+$(function() {
+  $(".btn-false").click(function() {
+    var confirmed = confirm("You are about to flag this fact as false. You cannot undo this action. Are you sure you wish to proceed?");
+    if (confirmed === true) {
+      var updateURL = $(event.target).data("update-url");
+      var currentFlags = $(event.target).data("current-flags");
+      var newFlags = currentFlags + 1;
+      $.ajax({
+        type: 'PUT',
+        url: updateURL,
+        dataType: 'json',
+        data: { fact: { flags: newFlags }}
+      });
+      location.reload();
+    }
+  });
+});
+</script>
+
+<div class="fact-box">
+
+<h1 class="text-center"><%= @fact.text %></h1>
+
+<div class="pull-right text-right">
+<% if @fact.flags.to_i > 0 %>
+<p class="text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This fact has been flagged as false <b><% if @fact.flags == 1 %> 1 time. <% else %> <%= @fact.flags %> times. <% end %></b> </p>
+<% end %>
+
+<button class="btn-false" data-update-url="<%= fact_path(@fact) %>" data-current-flags="<%= @fact.flags %>"><i class="fa fa-flag" aria-hidden="true"></i> False</button>
+</div>
+
+<br class="clear"/>
+
+<div class="text-center">
+<%= link_to 'Next Fact!', root_path, class: 'btn-nav text-center' %>
+</div>
+
+<div class="citations">
+<h2>Citations</h2>
+
+<% if @fact.initial_citation.present? %>
+<p><%= @fact.initial_citation %></p>
+<% end %>
+
+<% if @fact.citations.present? %>
+<% @fact.citations.each do |citation| %>
+<p><%= citation.source %></p>
+<% end %>
+<% end %>
+
+<% if !@fact.initial_citation.present? && !@fact.citations.present? %>
+<p>This fact has not been cited. Be the first to add a citation!</p>
+<% end %>
+
+<p><!-- Button trigger modal -->
+<%= link_to 'Add Citation', '#', class: 'btn-citation', data: {toggle: 'modal', target: '#addCitation'} %></p>
+</div>
+
+</div>
+
+<!-- New citation modal -->
+  <div class="modal fade" id="addCitation" tabindex="-1" role="dialog" aria-labelledby="addCitationLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2>Add a citation</h2>
+        </div>
+        <div class="modal-body">
+          <div class="form">
+            <%= simple_form_for @citation, url: fact_citations_path(@fact) do |f| %>
+              <%= f.input :source, label: "Citation" %>
+              <i>Add a primary source citation. Optional: Quote the original Latin/Greek source and translate it. You can also use this space to refute a fact.</i>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-submit" data-dismiss="modal">Close</button>
+          <%= f.submit 'Submit', class: 'btn btn-success' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

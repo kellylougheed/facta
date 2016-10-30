@@ -1,5 +1,14 @@
 class FactsController < ApplicationController
   def index
+    @facts = Fact.all
+    if params[:search]
+      @facts = Fact.search(params[:search]).order("created_at DESC")
+    else
+      @facts = Fact.all.order("created_at DESC")
+    end
+  end
+
+  def random
     @fact = Fact.order("RANDOM()").first
     @citation = Citation.new
   end
