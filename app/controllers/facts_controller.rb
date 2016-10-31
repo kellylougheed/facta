@@ -1,10 +1,9 @@
 class FactsController < ApplicationController
   def index
-    @facts = Fact.all
     if params[:search]
-      @facts = Fact.search(params[:search]).order("created_at DESC")
+      @facts = Fact.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
-      @facts = Fact.all.order("created_at DESC")
+      @facts = Fact.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     end
   end
 
@@ -14,7 +13,7 @@ class FactsController < ApplicationController
   end
 
   def all
-    @facts = Fact.paginate(:page => params[:page], :per_page => 5)
+    @facts = Fact.paginate(:page => params[:page], :per_page => 10)
   end
 
   def create
