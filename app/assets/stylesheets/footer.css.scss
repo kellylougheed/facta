@@ -1,30 +1,30 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
+html, body {
+  height: 100%;
+}
+#wrap {
   min-height: 100%;
+  height: auto;
+   /* Negative indent footer by its height */
+  margin: 0 auto -20px;
+  /* Pad bottom by footer height */
+  padding: 0 0 20px;
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 20px;
-}
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 20px;
+/* Set the fixed height of the footer here */
+#footer {
+  height:20px;
   color: #aaaaaa;
   text-align: center;
   background: url('binding_dark.png');
   opacity: .8;
 }
 
-.footer a, .footer a:link, .footer a:active, .footer a:visited {
+#footer a, #footer a:link, #footer a:active, #footer a:visited {
   color: #aaaaaa;
   text-decoration: none;
 }
 
-.footer a:hover {
+#footer a:hover {
   color: #dddddd;
 }
