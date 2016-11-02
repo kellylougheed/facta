@@ -110,16 +110,18 @@ a.btn-citation:hover {
 .clear {
   clear: both;
 }
+.white {
+  color: white;
+}
 
 @media (max-width: 767px) {
-  div.navbar {
-    font-size: 2em;
-    padding-top: 5px;
-  }
   div.fact-box {
     width: 90%;
   }
   .pull-right {
     margin-bottom: 20px;
+  }
+  .disappear {
+    display: none;
   }
 }
