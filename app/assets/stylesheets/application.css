@@ -14,8 +14,8 @@
  *= require_self
  */
 
-@import url(http://fonts.googleapis.com/css?family=Oswald:300);
-@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(//fonts.googleapis.com/css?family=Oswald:300);
+@import url(//fonts.googleapis.com/css?family=Lato);
 
 body {
   background: url('colosseum-min.jpg') no-repeat center center fixed; 
