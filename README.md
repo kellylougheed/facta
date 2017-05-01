@@ -4,6 +4,8 @@
 
 Facta displays user-generated fun facts about Ancient Rome. Users regulate the intellectual integrity of the site by flagging questionable facts as false and adding citations to facts with evidence.
 
+<img src="http://www.kellylougheed.com/images/projects/facta.png"/>
+
 <h2>Features:</h2>
 
 <ul>
